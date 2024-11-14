@@ -1,0 +1,33 @@
+jwt:
+  secret: I2/p8KBAFHtuCpB/uNTgrb4p2nFj8b11X8gQrODF7KJ+Mvx2Gt8XTahSqp2/rfprAoogJQihsjarowYjWDjBaQ==
+
+kakao:
+  client_id: 9f5fd6f213df0eaa4bda0f92193a1d8c
+  redirect_uri: http://localhost:8080/callback
+
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/myproject
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        #        show_sql: true
+        format_sql: true
+        default_batch_fetch_size: 100
+        #이거 적는게 제일 무난한 방법(클래스나 컬랙션 위에 각각 적기보다)
+
+    #open-in-view: false
+    #false로 되어있으면 트랜젝션 내에서 지연로딩 처리해주어야한다(respository나 service단에서)
+    #별도의 패키지를 두어 Service단의 역할과 화면에서의 처리 Service 로직을 분리하는 것이 유지보수에 좋다
+
+
+logging.level:
+  org.hibernate.SQL: debug
+#  org.hibernate.type: trace
